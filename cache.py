@@ -3,6 +3,7 @@ import time
 import inspect
 import base64
 import hashlib
+import fickling
 
 
 debug = False
@@ -22,7 +23,7 @@ def get_cache(fname):
         return caches[fname]
     try:
         with open(fname, "rb") as f:
-            c = pickle.load(f)
+            c = fickling.load(f)
     except:
         c = dict()
     caches[fname] = c
